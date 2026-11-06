@@ -1,0 +1,143 @@
+
+<section>
+  <p><%= seccion %></p>
+
+  <h2>Nueva reserva de sala</h2>
+
+  <p>
+    Completá el formulario para registrar una
+    reserva de sala de estudio.
+  </p>
+
+  <% if (errores && errores.length > 0) { %>
+    <div class="alerta" role="alert">
+      <h3>Hay errores en el formulario</h3>
+
+      <ul>
+        <% errores.forEach((error) => { %>
+          <li><%= error %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <form
+    class="formulario"
+    action="/reservas"
+    method="POST"
+  >
+    <div class="formulario-grupo">
+      <label for="estudiante">
+        Nombre del estudiante
+      </label>
+
+      <input
+        type="text"
+        id="estudiante"
+        name="estudiante"
+        value="<%= valores.estudiante || '' %>"
+        required
+      >
+    </div>
+
+    <div class="formulario-grupo">
+      <label for="email">
+        Correo electrónico
+      </label>
+
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value="<%= valores.email || '' %>"
+        required
+      >
+    </div>
+
+    <div class="formulario-grupo">
+      <label for="sala">
+        Sala de estudio
+      </label>
+
+      <select id="sala" name="sala" required>
+        <option value="">
+          Seleccionar sala
+        </option>
+
+        <% salasPermitidas.forEach((sala) => { %>
+          <option
+            value="<%= sala %>"
+            <%= valores.sala === sala ? "selected" : "" %>
+          >
+            <%= sala %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="formulario-grupo">
+      <label for="fecha">
+        Fecha de la reserva
+      </label>
+
+      <input
+        type="date"
+        id="fecha"
+        name="fecha"
+        value="<%= valores.fecha || '' %>"
+        required
+      >
+    </div>
+
+    <div class="formulario-grupo">
+      <label for="turno">
+        Turno
+      </label>
+
+      <select id="turno" name="turno" required>
+        <option value="">
+          Seleccionar turno
+        </option>
+
+        <% turnosPermitidos.forEach((turno) => { %>
+          <option
+            value="<%= turno %>"
+            <%= valores.turno === turno ? "selected" : "" %>
+          >
+            <%= turno %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="formulario-grupo">
+      <label for="personas">
+        Cantidad de personas
+      </label>
+
+      <input
+        type="number"
+        id="personas"
+        name="personas"
+        min="1"
+        max="6"
+        step="1"
+        value="<%= valores.personas ?? '' %>"
+        required
+      >
+    </div>
+
+    <button type="submit" class="boton">
+      Confirmar reserva
+    </button>
+  </form>
+
+  <div class="botones">
+    <a
+      href="/reservas"
+      class="boton boton-secundario"
+    >
+      Volver a reservas
+    </a>
+  </div>
+</section>

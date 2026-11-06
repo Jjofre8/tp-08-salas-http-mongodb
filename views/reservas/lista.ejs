@@ -1,0 +1,65 @@
+<section>
+    <p>GESTIÓN DE SALAS DE ESTUDIO</p>
+
+    <h2>Reservas registradas</h2>
+
+    <p>
+        Consultá las reservas de salas de estudio
+        y accedé al detalle de cada registro.
+    </p>
+
+    <div class="botones">
+        <a href="/reservas/nueva" class="boton">
+            Nueva reserva
+        </a>
+    </div>
+
+    <% if (reservas.length===0) { %>
+        <div class="alerta">
+            <h3>No hay reservas registradas</h3>
+
+            <p>
+                Todavía no se registraron reservas
+                de salas de estudio.
+            </p>
+        </div>
+        <% } else { %>
+            <div class="reservas">
+                <% reservas.forEach((reserva)=> { %>
+                    <article class="reserva-card">
+                        <h3>Reserva #<%= reserva.id %>
+                        </h3>
+
+                        <p>
+                            <strong>Estudiante:</strong>
+                            <%= reserva.estudiante %>
+                        </p>
+
+                        <p>
+                            <strong>Sala:</strong>
+                            <%= reserva.sala %>
+                        </p>
+
+                        <p>
+                            <strong>Fecha:</strong>
+                            <%= reserva.fecha %>
+                        </p>
+
+                        <p>
+                            <strong>Turno:</strong>
+                            <%= reserva.turno %>
+                        </p>
+
+                        <p>
+                            <strong>Personas:</strong>
+                            <%= reserva.personas %>
+                        </p>
+
+                        <a href="/reservas/<%= reserva.id %>" class="boton">
+                            Ver detalle
+                        </a>
+                    </article>
+                    <% }) %>
+            </div>
+            <% } %>
+</section>

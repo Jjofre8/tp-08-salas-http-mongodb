@@ -1,0 +1,37 @@
+
+{
+  "name": "tp-08-salas-http-mongodb",
+  "version": "1.0.0",
+  "description": "Trabajo Práctico 08 - Endpoints persistentes de reservas de salas con Express 5, MongoDB Atlas y Mongoose",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node --env-file=.env src/index.js",
+    "dev": "node --watch --env-file=.env src/index.js",
+    "format": "prettier --write src scripts",
+    "format:check": "prettier --check src scripts",
+    "lint": "eslint src scripts",
+    "check": "npm run format:check && npm run lint"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "mongoose",
+    "reservas",
+    "api-rest"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^9.11.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.6.2"
+  }
+}

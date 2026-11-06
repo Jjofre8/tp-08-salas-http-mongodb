@@ -1,0 +1,55 @@
+<section>
+    <p>RESERVAS DE SALAS DE ESTUDIO</p>
+
+    <h2>Detalle de la reserva</h2>
+
+    <p>
+        Consultá la información registrada para
+        esta reserva de sala de estudio.
+    </p>
+
+    <article class="reserva-card">
+        <h3>Reserva #<%= reserva.id %>
+        </h3>
+
+        <p>
+            <strong>Estudiante:</strong>
+            <%= reserva.estudiante %>
+        </p>
+
+        <p>
+            <strong>Correo electrónico:</strong>
+            <%= reserva.email %>
+        </p>
+
+        <p>
+            <strong>Sala:</strong>
+            <%= reserva.sala %>
+        </p>
+
+        <p>
+            <strong>Fecha:</strong>
+            <%= reserva.fecha %>
+        </p>
+
+        <p>
+            <strong>Turno:</strong>
+            <%= reserva.turno %>
+        </p>
+
+        <p>
+            <strong>Cantidad de personas:</strong>
+            <%= reserva.personas %>
+        </p>
+    </article>
+
+    <div class="botones">
+        <a href="/reservas" class="boton boton-secundario">
+            Volver a reservas
+        </a>
+
+        <a href="/reservas/nueva" class="boton">
+            Crear otra reserva
+        </a>
+    </div>
+</section>
